@@ -18,7 +18,6 @@ class MessageController extends Controller
         ]);
     }
     public function create(CreateMessageRequest $request){
-        return '0';
         try {
             \DB::beginTransaction();
             $user = auth()->guard('teacher')->user();

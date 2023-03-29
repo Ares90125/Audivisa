@@ -26,7 +26,7 @@ class CreateMessageRequest extends FormRequest
         return [
             'receiver_id'=>'required|integer|exists:users,id',
             'message'=>'required',
-            'type'=>'required|Boolean'
+            'type'=>'required|boolean'
         ];
     }
 }
