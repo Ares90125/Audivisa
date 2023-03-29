@@ -5,13 +5,15 @@ use App\Enums\BaseEnum;
 
 final class Type extends BaseEnum
 {
-    const ADMIN = "admin";
-    const PLAYER = "player";
+    const TEACHER = "teacher";
+    const PARENT = "parent";
+    const STUDENT = "student";
 
     public static function asList(): array {
         return [
-            self::ADMIN => "admin",
-            self::PLAYER => "player",
+            self::TEACHER=> "teacher",
+            self::PARENT => "parent",
+            self::STUDENT => "student"
         ];
     }
 }

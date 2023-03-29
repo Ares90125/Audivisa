@@ -46,13 +46,17 @@ return [
             'hash' => false,
         ],
 
-        'player' => [
+        'student' => [
             'driver' => 'jwt',
             'provider' => 'users',
             'hash' => false,
         ],
-
-        'admin' => [
+        'parent' => [
+            'driver' => 'jwt',
+            'provider' => 'users',
+            'hash' => false,
+        ],
+        'teacher' => [
             'driver' => 'jwt',
             'provider' => 'users',
             'hash' => false,

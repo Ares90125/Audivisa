@@ -19,10 +19,12 @@ class User extends Authenticatable implements JWTSubject
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
         'email',
         'password',
         'role'
+    ];
+    protected $appends = [
+      'profile'
     ];
 
     /**
@@ -35,14 +37,27 @@ class User extends Authenticatable implements JWTSubject
         'remember_token',
     ];
 
-    public function admin()
+    public function teacher()
     {
-        return $this->hasOne(Admin::class);
+        return $this->hasOne(Teacher::class);
     }
 
-    public function player()
+    public function parent()
     {
-        return $this->hasOne(Player::class);
+        return $this->hasOne(Sparent::class);
+    }
+
+    public function student()
+    {
+        return $this->hasOne(Student::class);
+    }
+    public function getProfileAttribute(){
+        switch($this->role)
+        {
+            case 'teacher': return $this->teacher()->first(); 
+            case 'parent': return $this->parent()->first(); 
+            default : return $this->student()->first(); 
+        }
     }
 
     /**

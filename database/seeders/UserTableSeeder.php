@@ -5,8 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
-use App\Models\Player;
-use App\Models\Admin;
+use App\Models\Teacher;
 
 class UserTableSeeder extends Seeder
 {
@@ -17,17 +16,6 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        $admin = User::create([
-            'name' => 'admin',
-            'email' => 'admin@test.com',
-            'password' => bcrypt('123123123'),
-            'role' => 'admin'
-        ]);
-        $player = User::create([
-            'name' => 'player',
-            'email' => 'player@test.com',
-            'password' => bcrypt('player'),
-            'role' => 'player'
-        ]);
+        
     }
 }

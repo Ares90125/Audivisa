@@ -1,114 +1,144 @@
 # Test for tictales
 
 ## Auther
-> Alexis
+> Ares Colin
 
 ## About project
 
-This project is used Laravel 9, MySQL, Laravel guard for multi authetication for admin and player
-I've focused on player part becasue of test is required only player part but login is implement in both.
+This project is used Laravel 9, MySQL, Laravel guard for multi authetication for Teacher, Parent, Student.
+
 
 project running
 ```
 1. git clone.
 2. install PHP, Composer, MySQL.
 3. composer install  
-4. creat database which name is 'tictales'
+4. creat database which name is 'audivisa'
 5. php artisan migrate
-6. php artisan db:seed
 ```
-as you can see in command, I've created migration and Seed file for test.
+
 
 ## API Endpoint
 
-1. Login with Admin
-   - POST :  localhost:8000/api/admin/login
-     - Parameters 
-       - email
-       -password
-     - example
-       - email : admin@test.com
-       - password : 123123123
-     - response
-       - status 
-       - message
-       - token
-    
-2. Login with player
-   - POST :  localhost:8000/api/player/login
-     - Parameters 
-       - email
-       -password
-     - example
-       - email : player@test.com
-       - password : player
-     - response
-       - status 
-       - message
-       - token
+  ### Teacher part
+      1. Register with Teacher
+        - POST :  localhost:8000/api/teacher/register
+          - Parameters 
+            - email
+            - password
+            - firstname
+            - lastname
+            - photo   [option]
+          - example
+            - email : teacher@test.com
+            - password : 123123123
+            - firstname:first
+            - lastname:last
+            - photo : 1.png [or can't add]
+          
+      2. Login with Teacher
+        - POST :  localhost:8000/api/teacher/login
+          - Parameters 
+            - email
+            - password
+          - example
+            - email : teacher@test.com
+            - password : 123123123
 
-you have to add token for other request in api request
-
-3. get current items which are being used by this player.
-   - GET :  localhost:8000/api/player/useItem
-     - Parameters 
-        - no parameter
-     - response
-       - status 
-       - data
-```
-In data, you can see list of current item list.
-
-```
-
-4. get  items which are not being used by this player but bought.
-   - GET :  localhost:8000/api/player/unuseItem
-     - Parameters 
-        - no parameter
-     - response
-       - status 
-       - data
-```
-In data, you can see list of unuse item list.
-
-```
-
-5. get  all items which are bought by this player.
-   - GET :  localhost:8000/api/player/unuseItem
-     - Parameters 
-        - no parameter
-     - response
-       - status 
-       - data
-```
-In data, you can see list of all items item list.
-
-```
+      3. Get Profile Info
+        - GET :  localhost:8000/api/teacher/me
 
 
-6. buy item with item id
-   - GET :  localhost:8000/api/player/buyItem/{id}
-     - Parameters 
-        - no parameter
-     - example localhost:8000/api/player/buyItem/12
-     - response
-       - status 
-       - data
-```
-In data, you can see player info that cash_amount is reduced as price of item
+      4. send message
+        - POST :  localhost:8000/api/teacher/message/create
+          - Parameters 
+            - receiver_id
+            - message
+            - type
+          - example
+            - receiver_id : 1
+            - message : Hello
+            - type : 0
+      
+  ### Parent part
+      1. Register with Parent
+        - POST :  localhost:8000/api/parent/register
+          - Parameters 
+            - email
+            - password
+            - firstname
+            - lastname
+            - photo   [option]
+          - example
+            - email : parent@test.com
+            - password : 123123123
+            - firstname:Pfirst
+            - lastname:Plast
+            - photo : 1.png [or can't add]
+          
+      2. Login with Parent
+        - POST :  localhost:8000/api/parent/login
+          - Parameters 
+            - email
+            - password
+          - example
+            - email : parent@test.com
+            - password : 123123123
 
-```
-7. update current using item 
-   - POSt :  localhost:8000/api/player/updateuseitem
-     - Parameters 
-        - array which length is 10 because of category's length is 10.
-     - response
-       - status 
-       - data
-```
-In data, you can see current using items list after updating.
+      3. Get Profile Info
+        - GET :  localhost:8000/api/parent/me
+        
 
-```
+      4. send message
+        - POST :  localhost:8000/api/parent/message/create
+          - Parameters 
+            - receiver_id
+            - message
+          - example
+            - receiver_id : 1
+            - message : Hello
+      
+  ### Student part
+      1. Register with Student
+        - POST :  localhost:8000/api/student/register
+          - Parameters 
+            - email
+            - password
+            - firstname
+            - lastname
+            - photo   [option]
+          - example
+            - email : student@test.com
+            - password : 123123123
+            - firstname:Sfirst
+            - lastname:Slast
+            - photo : 1.png [or can't add]
+          
+      2. Login with Student
+        - POST :  localhost:8000/api/student/login
+          - Parameters 
+            - email
+            - password
+          - example
+            - email : student@test.com
+            - password : 123123123
+
+      3. Get Profile Info
+        - GET :  localhost:8000/api/student/me
+        
+
+      4. send message
+        - POST :  localhost:8000/api/student/message/create
+          - Parameters 
+            - receiver_id
+            - message
+          - example
+            - receiver_id : 1
+            - message : Hello
+      
+
+
+
 
 ## Conculation
 

@@ -18,10 +18,12 @@ function generateRandomString($alpha_length = 2, $num_length = 4) {
 function getRoleByGuard($guardName)
 {
     switch ($guardName) {
-        case 'admin':
-            return \App\Enums\User\Type::ADMIN;
-        case 'player':
-            return \App\Enums\User\Type::PLAYER;
+        case 'teacher':
+            return \App\Enums\User\Type::TEACHER;
+        case 'parent':
+            return \App\Enums\User\Type::PARENT;
+        case 'student':
+            return \App\Enums\User\Type::STUDENT;
         default:
             return '';
     }
